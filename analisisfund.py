@@ -1,6 +1,7 @@
 import pandas as pd
 import pandas_datareader as pdr
 import yfinance as yf
+import yahooquery as yq
 from datetime import datetime
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
@@ -15,60 +16,70 @@ pd.options.display.float_format = '${:,.2f}'.format
 valido = None
 
 while valido is None:
-    ticker = input("Escriba el ticker de la accion a analizar: ").upper()
+    
+    #ticker = input("Escriba el ticker de la accion a analizar: ").upper()
+    ticker = "AAPL"
+    tickeryq = yq.Ticker(ticker)
     tickeryf = yf.Ticker(ticker)
     try:
-        valido = tickeryf.basic_info
+        valido= tickeryq.asset_profile
     except ValueError:
         print("El ticker no es valido o tiene problemas de conexion (en ese caso intente mas tarde)")
         valido = None
         continue
     else:
         break
-    
-    
+
+
 hoy = datetime.today()
 
 
 #obtenemos los datos financieros
-financials = tickeryf.financials
-balance_sheet = tickeryf.balance_sheet
+balance_sheet = tickeryq.balance_sheet(frequency='q')
+financials = tickeryq.all_financial_data(frequency="q")
+income_statement = tickeryq.income_statement(frequency="q")
+
 
 #obtenemos el último trimestre
-current_quarter = financials.columns[-1]
+current_quarter = -1
 
-#calculando current ratio (liquidez)
-current_assets = balance_sheet.loc["Total Current Assets", current_quarter]
-current_liabilities = balance_sheet.loc["Total Current Liabilities", current_quarter]
+
+
+#calculando current ratio (liquidez) 
+current_assets = balance_sheet["CurrentAssets"][current_quarter]
+
+current_liabilities = balance_sheet['CurrentLiabilities'][current_quarter]
 
 current_ratio = current_assets / current_liabilities
 
+
 #calculando solvencia
-total_assets = balance_sheet.loc["Total non-current assets", current_quarter]
-total_liabilities = balance_sheet.loc["Total non-current assets", current_quarter]
+total_assets = balance_sheet['TotalAssets'][current_quarter]
+
+total_liabilities = balance_sheet['TotalLiabilitiesNetMinorityInterest'][current_quarter]
 
 solvencia = total_assets/total_liabilities
 
+
 #calculando asset turnover (eficiencia)
-sales = financials.loc["Total Revenue", current_quarter]
-total_assets = balance_sheet.loc["Total Assets", current_quarter]
+sales = financials["TotalRevenue"][current_quarter]
+total_assets = balance_sheet["TotalAssets"][current_quarter]
 
 asset_turnover = sales / total_assets
 
+
 #calculando return on equity (rentabilidad)
-total_equity = balance_sheet.loc["Total Stockholders' Equity", current_quarter]
-roe = financials.loc["Net Income", current_quarter] / total_equity
+total_equity = balance_sheet["StockholdersEquity"]
+roe = income_statement["NetIncome"][current_quarter] / total_equity
 
 #calculando price/earning (valuacion)
+latest_net_income = income_statement["NetIncomeCommonStockholders"][current_quarter]
 
-latest_net_income = financials.loc["Net Income Applicable To Common Shares", current_quarter]
 
-if latest_net_income > 0:
-    pe_ratio = tickeryf.info["regularMarketPrice"] / latest_net_income
+if 'regularMarketPrice' in tickeryq.price and latest_net_income > 0:
+    pe_ratio = float(tickeryq.price['regularMarketPrice']) / float(latest_net_income)
 else:
     pe_ratio = None
-
-
 
 
 
