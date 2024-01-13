@@ -49,7 +49,5 @@ class AnalisisFinanciero:
             print(f"Liquidez: {self.calcular_liquidez()}")
             print(f"Solvencia: {self.calcular_solvencia()}")
             print(f"Eficiencia: {self.calcular_eficiencia()}")
-            print(f"Return on Equity: {self.calcular_return_on_equity()}")
-            print(f"PE Ratio: {self.calcular_pe_ratio()}")
         else:
             print("Análisis no realizado debido a problemas con el ticker.")
