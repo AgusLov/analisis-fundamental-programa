@@ -2,6 +2,7 @@ import pandas as pd
 import yahooquery as yq
 from clasificacion import clasificar_eficiencia, clasificar_liquidez, clasificar_solvencia
 from clase_analisis import AnalisisFinanciero
+from clase_color import ColorResultado
 
 class AnalisisFinanciero:
     def __init__(self, ticker):
@@ -46,8 +47,8 @@ class AnalisisFinanciero:
     def realizar_analisis(self):
         if self.validar_ticker():
             print(f"Ticker: {self.ticker}")
-            print(f"Liquidez: {self.calcular_liquidez()}")
-            print(f"Solvencia: {self.calcular_solvencia()}")
-            print(f"Eficiencia: {self.calcular_eficiencia()}")
+            print(f"Liquidez: {ColorResultado(self.calcular_liquidez())}")
+            print(f"Solvencia: {ColorResultado(self.calcular_solvencia())}")
+            print(f"Eficiencia: {ColorResultado(self.calcular_eficiencia())}")
         else:
             print("Análisis no realizado debido a problemas con el ticker.")
