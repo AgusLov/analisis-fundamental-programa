@@ -13,12 +13,58 @@ import warnings
 warnings.filterwarnings('ignore')
 pd.options.display.float_format = '${:,.2f}'.format
 
+def liquidez(currentratio):
+    if currentratio > 0 and currentratio < 0.5:
+        liquido = "Descartada"
+    elif currentratio >= 0.5 and currentratio < 1:
+        liquido = "Arriesgada"
+    elif currentratio >= 1 and currentratio < 1.5:
+        liquido = "Ok"
+    elif currentratio >= 1.5 and currentratio < 2:
+        liquido = "Muy bien"
+    elif currentratio >= 2:
+        liquido = "Excelente"
+    else:
+        liquido = "Valor no válido"
+    return liquido
+
+def solvencia(solv):
+    if solv > 0 and solv < 0.5:
+        solvente = "Descartada"
+    elif solv >= 0.5 and solv < 1:
+        solvente = "Arriesgada"
+    elif solv >= 1 and solv < 1.5:
+        solvente = "Ok"
+    elif solv >= 1.5 and solv < 2:
+        solvente = "Muy bien"
+    elif solv >= 2:
+        solvente = "Excelente"
+    else:
+        solvente = "Valor no válido"
+    return solvente
+
+
+def eficiencia(turnover):
+    if turnover < 1:
+        eficiente = "Ineficiente"
+    elif turnover >= 1 and turnover < 2:
+        eficiente = "Ok"
+    elif turnover >= 2 and turnover < 3:
+        eficiente = "Decente"
+    elif turnover >= 3:
+        eficiente = "Excelente"
+    else:
+        eficiente = "Valor no válido"
+    return eficiente
+  
+
+
 valido = None
 
 while valido is None:
-    
+
     #ticker = input("Escriba el ticker de la accion a analizar: ").upper()
-    ticker = "AAPL"
+    ticker = input()
     tickeryq = yq.Ticker(ticker)
     tickeryf = yf.Ticker(ticker)
     try:
@@ -53,12 +99,17 @@ current_liabilities = balance_sheet['CurrentLiabilities'][current_quarter]
 current_ratio = current_assets / current_liabilities
 
 
+print(f"La liquedez esta: {liquidez(current_ratio)}")
+
+
 #calculando solvencia
 total_assets = balance_sheet['TotalAssets'][current_quarter]
 
 total_liabilities = balance_sheet['TotalLiabilitiesNetMinorityInterest'][current_quarter]
 
-solvencia = total_assets/total_liabilities
+solv = total_assets/total_liabilities
+
+print(f"Su solvencia esta: {solvencia(solv)}")
 
 
 #calculando asset turnover (eficiencia)
@@ -68,9 +119,13 @@ total_assets = balance_sheet["TotalAssets"][current_quarter]
 asset_turnover = sales / total_assets
 
 
+print(f"Su eficiencia es: {eficiencia(asset_turnover)}")
+
+
 #calculando return on equity (rentabilidad)
 total_equity = balance_sheet["StockholdersEquity"]
 roe = income_statement["NetIncome"][current_quarter] / total_equity
+
 
 #calculando price/earning (valuacion)
 latest_net_income = income_statement["NetIncomeCommonStockholders"][current_quarter]
