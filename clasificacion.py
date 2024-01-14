@@ -15,13 +15,13 @@ def clasificacion_color(clasificacion):
 def clasificar_liquidez(currentratio):
     if 0 < currentratio < 0.5:
         liquido = "Descartada"
-    elif currentratio >= 0.5 and currentratio < 1:
+    elif 0.5 <= currentratio < 1:
         liquido = "Arriesgada"
-    elif currentratio >= 1 and currentratio < 1.5:
+    elif 1 <= currentratio < 1.5:
         liquido = "Ok"
-    elif currentratio >= 1.5 and currentratio < 2:
+    elif 1.5 <= currentratio < 2:
         liquido = "Muy bien"
-    elif currentratio >= 2:
+    elif 2 <= currentratio:
         liquido = "Excelente"
     else:
         liquido = "Valor no válido"
@@ -30,15 +30,15 @@ def clasificar_liquidez(currentratio):
     
 
 def clasificar_solvencia(solv):
-    if solv > 0 and solv < 0.5:
+    if 0 < solv < 0.5:
         solvencia = "Descartada"
-    elif solv >= 0.5 and solv < 1:
+    elif 0.5 <= solv < 1:
         solvencia = "Arriesgada"
-    elif solv >= 1 and solv < 1.5:
+    elif 1 <= solv < 1.5:
         solvencia = "Ok"
-    elif solv >= 1.5 and solv < 2:
+    elif 1.5 <= solv < 2:
         solvencia = "Muy bien"
-    elif solv >= 2:
+    elif 2 <= solv:
         solvencia = "Excelente"
     else:
         solvencia = "Valor no válido"
@@ -50,11 +50,11 @@ def clasificar_solvencia(solv):
 def clasificar_eficiencia(turnover):
     if turnover < 1:
         eficiencia = "Ineficiente"
-    elif turnover >= 1 and turnover < 2:
+    elif 1 <= turnover < 2:
         eficiencia = "Ok"
-    elif turnover >= 2 and turnover < 3:
+    elif 2 <= turnover < 3:
         eficiencia = "Decente"
-    elif turnover >= 3:
+    elif 3 <= turnover:
         eficiencia = "Excelente"
     else:
         eficiencia = "Valor no válido"
