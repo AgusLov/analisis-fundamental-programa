@@ -1,4 +1,4 @@
-from clase_color import ColorResultado
+from logic.clase_color import ColorResultado
 
 def clasificacion_color(clasificacion):
     

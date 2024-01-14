@@ -1,7 +1,7 @@
 import pandas as pd
 import yahooquery as yq
-from clasificacion import clasificar_solvencia, clasificar_liquidez, clasificar_eficiencia, clasificacion_color
-from clase_color import ColorResultado
+from logic.clasificacion import clasificar_solvencia, clasificar_liquidez, clasificar_eficiencia, clasificacion_color
+from logic.clase_color import ColorResultado
 
 
 class AnalisisFinanciero:
