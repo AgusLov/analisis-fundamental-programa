@@ -6,7 +6,7 @@ Este programa de análisis financiero te permite evaluar la liquidez, solvencia 
 
 Este programa de análisis financiero está basado en el video educativo proporcionado por Ariel Mamani de InverArg en el canal de "Joven Inversor". Puedes encontrar el video original en el siguiente enlace:
 
-[QUE ES Y COMO HACER Analisis Fundamental || Con InverArg](https://www.youtube.com/watch?v=ehLyujzFzt4)
+### [QUE ES Y COMO HACER Analisis Fundamental || Con InverArg](https://www.youtube.com/watch?v=ehLyujzFzt4)
 
 Agradecemos sinceramente a Ariel Mamani por compartir su conocimiento en materia de análisis financiero y valoración de empresas. Este programa ha sido desarrollado con la intención de aplicar las enseñanzas brindadas en el video mencionado y facilitar a los usuarios un análisis financiero elemental de acciones.
 
