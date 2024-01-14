@@ -1,6 +1,19 @@
+from clase_color import ColorResultado
+
+def clasificacion_color(clasificacion):
+    
+    if clasificacion in ["Descartada", "Arriesgada", "Ineficiente", "Valor no válido"]:
+        return "31"
+    elif clasificacion == "Ok":
+        return "33"
+    elif clasificacion in ["Decente", "Excelente", "Muy bien"]:
+        return "32"
+
+
+
 
 def clasificar_liquidez(currentratio):
-    if currentratio > 0 and currentratio < 0.5:
+    if 0 < currentratio < 0.5:
         liquido = "Descartada"
     elif currentratio >= 0.5 and currentratio < 1:
         liquido = "Arriesgada"
@@ -48,12 +61,3 @@ def clasificar_eficiencia(turnover):
     
     return (eficiencia, clasificacion_color(eficiencia))
 
-
-def clasificacion_color(clasificacion):
-    
-    if clasificacion == "Descartada" or "Arriesgada" or "Ineficiente" or "Valor no válido":
-        return 31
-    elif clasificacion == "Ok":
-        return 33
-    elif clasificacion == "Decente" or "Excelente" or "Muy bien":
-        return 32
