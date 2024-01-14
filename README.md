@@ -2,6 +2,8 @@
 
 Este programa de análisis financiero te permite evaluar la liquidez, solvencia y eficiencia de una empresa a partir de sus informes financieros trimestrales. La modularización del código se ha realizado dividiéndolo en varios archivos para mejorar la organización y facilitar su mantenimiento.
 
+[![Python](https://img.shields.io/badge/Python-3.11+-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://python.org)
+
 # Créditos
 
 Este programa de análisis financiero está basado en el video educativo proporcionado por Ariel Mamani de InverArg en el canal de "Joven Inversor". Puedes encontrar el video original en el siguiente enlace:
