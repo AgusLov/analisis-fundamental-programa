@@ -1,4 +1,5 @@
 import warnings
+import msvcrt
 warnings.filterwarnings('ignore')
 
 from warnings import catch_warnings
@@ -15,3 +16,5 @@ with catch_warnings(category=DeprecationWarning):
     ticker = input("Escriba el ticker de la acción a analizar: ").upper()
     analisis = AnalisisFinanciero(ticker)
     analisis.resultados()
+    print("Presione una tecla para continuar...")
+    msvcrt.getch()
