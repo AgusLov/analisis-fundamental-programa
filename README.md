@@ -1,10 +1,10 @@
-# Programa de Análisis Financiero
+# Programa de Análisis Financiero 💼💰
 
 Este programa de análisis financiero te permite evaluar la liquidez, solvencia y eficiencia de una empresa a partir de sus informes financieros trimestrales. La modularización del código se ha realizado dividiéndolo en varios archivos para mejorar la organización y facilitar su mantenimiento.
 
 [![Python](https://img.shields.io/badge/Python-3.11+-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://python.org)
 
-# Créditos
+## Créditos 🙏
 
 Este programa de análisis financiero está basado en el video educativo proporcionado por Ariel Mamani de InverArg en el canal de "Joven Inversor". Puedes encontrar el video original en el siguiente enlace:
 
@@ -12,7 +12,7 @@ Este programa de análisis financiero está basado en el video educativo proporc
 
 Agradecemos sinceramente a Ariel Mamani por compartir su conocimiento en materia de análisis financiero y valoración de empresas. Este programa ha sido desarrollado con la intención de aplicar las enseñanzas brindadas en el video mencionado y facilitar a los usuarios un análisis financiero elemental de acciones.
 
-## Requerimientos
+## Requerimientos 🛠️
 
 - pandas
 - yahooquery
@@ -23,7 +23,7 @@ Puedes instalar las dependencias ejecutando el siguiente comando:
 pip install pandas yahooquery
 ```
 
-## Carpetas y Archivos de Lógica
+## Carpetas y Archivos de Lógica 📂
 
 ### `logic/clase_analisisfinanciero.py`
 
@@ -37,19 +37,19 @@ En `clasificacion.py`, se encuentran funciones para clasificar los resultados en
 
 El archivo `clase_color.py` contiene la definición de la clase `ColorResultado`. Esta clase se encarga de dar formato de color al resultado para su presentación en la consola.
 
-## Uso
+## Uso 🚀
 
 1. Ejecuta `main.py`.
 2. Ingresa el ticker de la acción que deseas analizar.
 3. Observa los resultados clasificados y presentados con colores en la consola.
 
-## Limitaciones
+## Limitaciones ⚠️
 
 - El programa asume que los datos financieros están disponibles a través de Yahoo Finance y que el ticker ingresado es válido.
 - La precisión del análisis depende de la calidad y disponibilidad de los datos financieros de la empresa.
 - La clasificación y colores pueden variar según los criterios específicos establecidos en las funciones de clasificación.
 
-## Contribuir
+## Contribuir 🤝
 
 Aquí hay algunas formas en las que puedes contribuir:
 
@@ -61,7 +61,7 @@ Aquí hay algunas formas en las que puedes contribuir:
 
 4. **Mejora de Documentación:** Mejorar la documentación es siempre bienvenido. Si encuentras áreas en la documentación que pueden ser más claras o si deseas agregar ejemplos adicionales, ¡adelante!
 
-## Cómo Contribuir
+## Cómo Contribuir 🛠️
 
 1. Clona el repositorio:
 
@@ -90,6 +90,5 @@ Aquí hay algunas formas en las que puedes contribuir:
    ```
 
 6. Crea un pull request en el repositorio.
-
 
 
